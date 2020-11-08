@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { Collapse, Grid, Paper } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OrderTable from "../components/OrderTable";
 import Loading from "../components/shared/Loading";
 import { ORDERS } from "../queries/order";
@@ -10,7 +10,11 @@ import { useStyles } from "../styles/paper";
 const Orders = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(true);
-  const { data, loading, error } = useQuery(ORDERS);
+  const { data, loading, error, refetch } = useQuery(ORDERS);
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   if (loading) return <Loading />;
   return (
