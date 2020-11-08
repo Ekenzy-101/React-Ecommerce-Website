@@ -49,7 +49,12 @@ const RecipeCard = ({ recipe, stretch }) => {
         </Typography>
         {totalRating ? (
           <div className={classes.centerGroup}>
-            <Rating precision={0.1} value={totalRating} size="small" readOnly />
+            <Rating
+              precision={0.1}
+              value={parseFloat(totalRating)}
+              size="small"
+              readOnly
+            />
             <Typography style={{ marginLeft: "0.5rem" }} color="textSecondary">
               {`(${recipe.comments.length})`}
             </Typography>

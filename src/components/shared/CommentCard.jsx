@@ -40,7 +40,12 @@ const CommentCard = ({ comment, onSetComment, onDeleteComment }) => {
           </Typography>
         </div>
         <div className={classes.centerGroup}>
-          <Rating precision={1} value={comment.rating} size="small" readOnly />
+          <Rating
+            precision={1}
+            value={parseFloat(comment.rating)}
+            size="small"
+            readOnly
+          />
           <Typography
             className={classes.subHeader}
             style={{ fontWeight: "bold" }}

@@ -33,7 +33,7 @@ const CartProvider = (props) => {
       await toggleCart({ variables: { recipeId, add: true } });
       refetch();
     } catch (e) {
-      if (e.message == "Unauthorized")
+      if (e.message === "Unauthorized")
         return history.push(TO_LOGIN, `/recipe/${recipeId}`);
     }
   };
@@ -44,7 +44,7 @@ const CartProvider = (props) => {
       await toggleCart({ variables: { recipeId, add: false } });
       refetch();
     } catch (e) {
-      if (e.message == "Unauthorized")
+      if (e.message === "Unauthorized")
         return history.push(TO_LOGIN, `/recipe/${recipeId}`);
     }
   };
@@ -56,7 +56,6 @@ const CartProvider = (props) => {
       await refetch();
       await refetch1();
     } catch (e) {
-      console.log(e);
       toast.error("Could not delete item");
     }
   };

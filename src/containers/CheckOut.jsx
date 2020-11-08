@@ -13,7 +13,11 @@ import { CartContext } from "../context/cart";
 import useForm from "../hooks/useForm";
 import { TAKE_ORDER } from "../mutations/order";
 import { useStyles } from "../styles/creditCards";
-import { TO_CARTS, TO_CREDIT_CARDS } from "../utils/constants";
+import {
+  TO_CARTS,
+  TO_CREDIT_CARDS,
+  TO_SELECT_ADDRESS,
+} from "../utils/constants";
 import { calculateTotalPrice } from "../utils/helpers";
 
 const CheckOut = ({ history, location }) => {
@@ -55,9 +59,10 @@ const CheckOut = ({ history, location }) => {
   };
 
   useEffect(() => {
-    if (!recipes.length) {
-      history.replace(TO_CARTS);
-    }
+    if (!recipes.length) return history.replace(TO_CARTS);
+
+    if (!location.state) return history.replace(TO_SELECT_ADDRESS);
+
     refetchCards();
     refetchCart();
     window.scrollTo(0, 0);

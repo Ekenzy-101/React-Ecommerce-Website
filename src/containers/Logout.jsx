@@ -18,9 +18,9 @@ const Logout = ({ history }) => {
     removeCurrentUser();
     window.location = TO_HOME;
   };
-  useEffect(() => {
-    handleLogOut();
-  }, []);
+  // useEffect(() => {
+  handleLogOut();
+  // }, []);
   return null;
 };
 

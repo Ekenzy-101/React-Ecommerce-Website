@@ -20,8 +20,8 @@ const CommentSection = ({
     let hasOrdered = false;
     if (!user) return hasOrdered;
 
-    for (let userOrder in user.orders) {
-      if (orders.some((recipeOrder) => recipeOrder._id == userOrder._id)) {
+    for (let userOrder of user.orders) {
+      if (orders.some((recipeOrder) => recipeOrder._id === userOrder._id)) {
         hasOrdered = true;
       }
     }
@@ -51,7 +51,12 @@ const CommentSection = ({
       </div>
 
       <div className={classes.buttonGroup} style={{ marginBottom: "0.5rem" }}>
-        <Rating precision={0.1} value={totalRating} size="small" readOnly />
+        <Rating
+          precision={0.1}
+          value={parseFloat(totalRating)}
+          size="small"
+          readOnly
+        />
         <Typography style={{ marginLeft: "0.5rem" }} variant="body2">
           {totalRating} out of 5
         </Typography>

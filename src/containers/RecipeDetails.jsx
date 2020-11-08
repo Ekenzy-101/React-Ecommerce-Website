@@ -17,12 +17,7 @@ import RecipeCategory from "../components/shared/RecipeCategory";
 import { DELETE_COMMENT } from "../mutations/comment";
 import { TOGGLE_LIKE } from "../mutations/recipe";
 import { RECIPE, RECIPES_BY_CATEGORY } from "../queries/recipe";
-import {
-  TO_CARTS,
-  TO_LOGIN,
-  TO_NOT_FOUND,
-  TO_RECIPES,
-} from "../utils/constants";
+import { TO_LOGIN, TO_NOT_FOUND, TO_RECIPES } from "../utils/constants";
 import { calculateRating } from "../utils/helpers";
 
 const RecipeDetails = ({ match: { params }, history }) => {
@@ -160,7 +155,7 @@ const RecipeDetails = ({ match: { params }, history }) => {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <Rating
                   precision={0.1}
-                  value={totalRating}
+                  value={parseFloat(totalRating)}
                   className={classes.rating}
                   // size="small"
                   readOnly
