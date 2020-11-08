@@ -26,8 +26,7 @@ const Login = ({ location: { state } }) => {
     setSubmitted(true);
     try {
       await login({ variables: { email: "", password: "", ...formData } });
-
-      // window.location = state ? state : TO_HOME;
+      window.location = state ? state : TO_HOME;
     } catch (e) {
       setSubmitted(false);
       setError(e.message);
