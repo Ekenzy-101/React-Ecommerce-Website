@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 import { useStyles } from "../styles/form";
 import { BUSINESS_LOGO, TO_HOME, TO_SIGNUP } from "../utils/constants";
 import useForm from "../hooks/useForm";
-import { validateEmail, validatePassword } from "../utils/validation";
 import { LOGIN_USER } from "../mutations/user";
-
-const obj = { email: "", password: "" };
 
 const Login = ({ location: { state } }) => {
   const classes = useStyles();
@@ -21,9 +18,7 @@ const Login = ({ location: { state } }) => {
     setSubmitted,
     setError,
     setOpen,
-  } = useForm({
-    ...obj,
-  });
+  } = useForm({});
   const [login] = useMutation(LOGIN_USER);
 
   const handleSubmit = async (e) => {
