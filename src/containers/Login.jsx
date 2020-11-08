@@ -25,7 +25,7 @@ const Login = ({ location: { state } }) => {
     e.preventDefault();
     setSubmitted(true);
     try {
-      await login({ variables: { ...formData } });
+      await login({ variables: { email: "", password: "", ...formData } });
       window.location = state ? state : TO_HOME;
     } catch (e) {
       setSubmitted(false);
