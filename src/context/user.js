@@ -21,7 +21,7 @@ const UserProvider = (props) => {
   return (
     <UserContext.Provider
       value={{
-        user: data.user,
+        user: data === undefined ? null : data.user,
         refetch,
       }}
     >

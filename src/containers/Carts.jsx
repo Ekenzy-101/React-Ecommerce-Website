@@ -24,6 +24,7 @@ const Carts = () => {
   useEffect(() => {
     refetchRecipe();
     refetchCart();
+    window.scrollTo(0, 0);
   }, []);
 
   if (isLoading) return <Loading />;

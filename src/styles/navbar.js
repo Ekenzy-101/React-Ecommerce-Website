@@ -23,14 +23,14 @@ export const useStyles = makeStyles((theme) => ({
   input: {
     borderRadius: "6px",
     background: "#ffa500",
-    color: common["white"],
+    color: "#fff !important",
     paddingLeft: "15px",
     marginLeft: "6rem",
   },
   mobileInput: {
     borderRadius: "6px",
     background: "#ffa500",
-    color: common["white"],
+    color: "#fff !important",
     paddingLeft: "15px",
     width: "85%",
     margin: "0.5rem auto",

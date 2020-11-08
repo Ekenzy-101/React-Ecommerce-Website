@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Hidden, Paper, Typography } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
 import qs from "querystring";
@@ -22,6 +22,10 @@ const Recipes = ({ location }) => {
     setPage(page);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (loading) return <Loading />;
   let count = 0;
   let paginatedData = [];
@@ -31,7 +35,7 @@ const Recipes = ({ location }) => {
     paginatedData = paginate(page, recipesPerPage, data.recipesByCategory);
   }
 
-  if (!paginatedData.length && !loading) return <NoResult />;
+  if (!paginatedData.length && !loading) return <NoResult search={search} />;
   return (
     <Paper className={classes.paper}>
       {category && (

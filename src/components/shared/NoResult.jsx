@@ -17,16 +17,16 @@ const NoResult = ({ search }) => {
       >
         <Grid xs={10} sm={8} md={5} lg={4} item>
           <Typography className={classes.title}>
-            Not search results for {search}
+            No search results found for {search}
           </Typography>
           <center>
             <Avatar src={SAD_EMOJI} className={classes.image} />
           </center>
           <Typography className={classes.subTitle} variant="body1">
-            I am sorry. We couldn't find which resipe you are looking for.
+            I am sorry. We couldn't find the recipe you are looking for.
           </Typography>
           <Typography style={{ textAlign: "center" }} variant="body2">
-            But we have hundreds more recipes for you to browse
+            But we have hundreds of more recipes for you to browse
           </Typography>
           <Button
             onClick={() => history.push(TO_HOME)}

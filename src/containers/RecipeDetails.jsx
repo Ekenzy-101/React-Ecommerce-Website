@@ -131,7 +131,8 @@ const RecipeDetails = ({ match: { params } }) => {
   useEffect(() => {
     refetch();
     refetch1();
-  }, []);
+    window.scrollTo(0, 0);
+  }, [params._id]);
 
   if (loading || loading1 || isLoading) return <Loading />;
   if (error) return <Redirect to={TO_NOT_FOUND} />;

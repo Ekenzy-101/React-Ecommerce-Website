@@ -22,7 +22,7 @@ const NotFound = ({ history }) => {
             I am sorry. We couldn't find the page you are looking for
           </Typography>
           <Typography style={{ textAlign: "center" }} variant="body2">
-            But we have hundreds more recipes for you to browse
+            But we have hundreds of more recipes for you to browse
           </Typography>
           <Button
             onClick={() => history.push(TO_HOME)}

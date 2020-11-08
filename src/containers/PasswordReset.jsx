@@ -82,6 +82,7 @@ const PasswordReset = ({ match: { params }, history, location }) => {
 
   useEffect(() => {
     onMount();
+    window.scrollTo(0, 0);
   }, []);
   return (
     <Paper className={classes.paper} square>

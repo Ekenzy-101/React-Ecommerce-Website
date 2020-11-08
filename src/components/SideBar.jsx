@@ -84,6 +84,7 @@ const SideBar = ({ open, setOpen, onClick }) => {
             </ListItem>
           </div>
         )}
+        <Divider />
         <ListItem className={classes.subList}>
           <ListItemText primary={"MY FAST FOOD ACCOUNT"} />
         </ListItem>

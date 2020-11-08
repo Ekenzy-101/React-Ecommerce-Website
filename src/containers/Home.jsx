@@ -21,6 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     refetch();
+    window.scrollTo(0, 0);
   }, []);
 
   if (loading || loading1) return <Loading />;

@@ -56,6 +56,7 @@ const TopBar = ({ setOpen, onClick, darkMode }) => {
             onChange={(e) => setQuery(e.target.value)}
             inputProps={{ "aria-label": "Search Foods" }}
             className={classes.input}
+            style={{ color: "#fff !important" }}
             endAdornment={
               <IconButton
                 className={classes.search}
@@ -140,6 +141,7 @@ const TopBar = ({ setOpen, onClick, darkMode }) => {
           placeholder="Search Foods"
           inputProps={{ "aria-label": "Search Foods" }}
           className={classes.mobileInput}
+          style={{ color: "#fff !important" }}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           endAdornment={

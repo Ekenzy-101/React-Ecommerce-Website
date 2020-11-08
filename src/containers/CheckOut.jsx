@@ -60,6 +60,7 @@ const CheckOut = ({ history, location }) => {
     }
     refetchCards();
     refetchCart();
+    window.scrollTo(0, 0);
   }, []);
 
   if (loading || isLoading) return <Loading />;

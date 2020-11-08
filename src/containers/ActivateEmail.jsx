@@ -13,16 +13,19 @@ const ActivateEmail = ({ match, history }) => {
     renderSuccess,
     renderError,
     renderInput,
+    renderButton,
     setError,
     setSuccess,
+    setSubmitted,
     setOpen,
     formData,
     error,
-  } = useForm({ email: "email" });
+  } = useForm({ email: "" });
   const [activateEmail] = useMutation(ACTIVATE_EMAIL);
   const [verifyEmail] = useMutation(VERIFY_EMAIL);
 
-  const handleClick = async (e) => {
+  const handleSubmit = async (e) => {
+    setSubmitted(true);
     try {
       e.preventDefault();
       await verifyEmail({ variables: { email: formData.email } });
@@ -32,6 +35,7 @@ const ActivateEmail = ({ match, history }) => {
       setError(ex.message);
       setOpen(true);
     }
+    setSubmitted(false);
   };
 
   useEffect(() => {
@@ -82,15 +86,10 @@ const ActivateEmail = ({ match, history }) => {
             </Button>
           ) : (
             <>
-              {renderInput("email", "Email", validateEmail)}
-              <Button
-                fullWidth
-                className={classes.submit}
-                variant="contained"
-                onClick={(e) => handleClick(e)}
-              >
-                Resend Verification Email
-              </Button>
+              <form style={{ width: "100%" }} onSubmit={(e) => handleSubmit(e)}>
+                {renderInput("email", "Email", validateEmail)}
+                {renderButton("Resend Verification Email")}
+              </form>
             </>
           )}
         </Grid>
