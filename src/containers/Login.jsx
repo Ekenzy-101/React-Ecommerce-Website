@@ -31,7 +31,7 @@ const Login = ({ location: { state } }) => {
     setSubmitted(true);
     try {
       await login({ variables: { ...formData } });
-      // window.location = state ? state : TO_HOME;
+      window.location = state ? state : TO_HOME;
     } catch (e) {
       setSubmitted(false);
       setError(e.message);
@@ -54,8 +54,8 @@ const Login = ({ location: { state } }) => {
             <Typography variant="h5">Login</Typography>
           </div>
           <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
-            {renderInput("email", "Email", validateEmail, "johndoe@gmail.com")}
-            {renderInput("password", "Password", validatePassword)}
+            {renderInput("email", "Email", null, "johndoe@gmail.com")}
+            {renderInput("password", "Password")}
             {renderButton("LOGIN")}
           </form>
           <div className={classes.heading}>
