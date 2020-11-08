@@ -7,6 +7,9 @@ export const USER = gql`
       firstname
       lastname
       tokenCount
+      orders {
+        _id
+      }
     }
   }
 `;

@@ -88,24 +88,20 @@ const TopBar = ({ setOpen, onClick, darkMode }) => {
               <MenuItem
                 onClick={() => {
                   setAnchorEl(null);
-                  history.push(TO_SIGNUP);
+                  history.push(TO_LOGIN);
                 }}
               >
-                <Button color="primary">Sign Up</Button>
+                <Button color="primary">Login</Button>
               </MenuItem>
               <Divider />
               <MenuItem
                 onClick={() => {
                   setAnchorEl(null);
-                  history.push(TO_LOGIN);
+                  history.push(TO_SIGNUP);
                 }}
               >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  style={{ color: "#fff" }}
-                >
-                  Login
+                <Button variant="contained" color="primary">
+                  Sign Up
                 </Button>
               </MenuItem>
             </div>

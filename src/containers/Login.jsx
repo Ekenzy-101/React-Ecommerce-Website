@@ -50,7 +50,7 @@ const Login = ({ location: { state } }) => {
           </div>
           <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
             {renderInput("email", "Email", null, "johndoe@gmail.com")}
-            {renderInput("password", "Password")}
+            {renderInput("password", "Password", null, null, "password")}
             {renderButton("LOGIN")}
           </form>
           <div className={classes.heading}>

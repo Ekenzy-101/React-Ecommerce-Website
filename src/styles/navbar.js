@@ -3,7 +3,10 @@ import { orange, common } from "@material-ui/core/colors";
 
 export const useStyles = makeStyles((theme) => ({
   appbar: {
-    backgroundColor: orange[600],
+    backgroundColor:
+      theme.palette.type === "dark"
+        ? theme.palette.background.default
+        : orange[600],
     display: "flex",
     flexDirection: "column",
   },
@@ -22,14 +25,20 @@ export const useStyles = makeStyles((theme) => ({
   },
   input: {
     borderRadius: "6px",
-    background: "#ffa500",
+    background:
+      theme.palette.type === "dark"
+        ? theme.palette.background.paper
+        : "#ffa500",
     color: "#fff !important",
     paddingLeft: "15px",
     marginLeft: "6rem",
   },
   mobileInput: {
     borderRadius: "6px",
-    background: "#ffa500",
+    background:
+      theme.palette.type === "dark"
+        ? theme.palette.background.paper
+        : "#ffa500",
     color: "#fff !important",
     paddingLeft: "15px",
     width: "85%",
@@ -62,7 +71,10 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   user: {
-    backgroundColor: "#ff8c00",
+    backgroundColor:
+      theme.palette.type === "dark"
+        ? theme.palette.background.default
+        : orange[600],
     padding: "20px 10px",
   },
   userIcon: {

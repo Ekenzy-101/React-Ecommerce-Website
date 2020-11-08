@@ -55,7 +55,7 @@ const CheckOut = ({ history, location }) => {
   };
 
   useEffect(() => {
-    if (!recipes.length || !location.state) {
+    if (!recipes.length) {
       history.replace(TO_CARTS);
     }
     refetchCards();

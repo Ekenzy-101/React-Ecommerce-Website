@@ -3,7 +3,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { Avatar, Grid, IconButton, Paper, Typography } from "@material-ui/core";
 import { Favorite, AddShoppingCart, Add, Remove } from "@material-ui/icons";
 import { Rating } from "@material-ui/lab";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import { useStyles } from "../styles/recipe";
 import { UserContext } from "../context/user";
@@ -17,10 +17,15 @@ import RecipeCategory from "../components/shared/RecipeCategory";
 import { DELETE_COMMENT } from "../mutations/comment";
 import { TOGGLE_LIKE } from "../mutations/recipe";
 import { RECIPE, RECIPES_BY_CATEGORY } from "../queries/recipe";
-import { TO_LOGIN, TO_NOT_FOUND, TO_RECIPES } from "../utils/constants";
+import {
+  TO_CARTS,
+  TO_LOGIN,
+  TO_NOT_FOUND,
+  TO_RECIPES,
+} from "../utils/constants";
 import { calculateRating } from "../utils/helpers";
 
-const RecipeDetails = ({ match: { params } }) => {
+const RecipeDetails = ({ match: { params }, history }) => {
   const classes = useStyles();
   const { data, loading, error, refetch } = useQuery(RECIPE, {
     variables: { _id: params._id },
@@ -37,7 +42,6 @@ const RecipeDetails = ({ match: { params } }) => {
     handleRemoveFromCart,
     isLoading,
   } = useContext(CartContext);
-  const history = useHistory();
   const [open, setOpen] = useState(false);
   const [selectedComment, setSelectedComment] = useState(null);
 
@@ -94,9 +98,9 @@ const RecipeDetails = ({ match: { params } }) => {
             className={classes.toggleButton}
             color="primary"
             variant="contained"
-            onClick={(e) => handleAddToCart(e, params._id)}
+            onClick={(e) => handleRemoveFromCart(e, params._id)}
           >
-            <Add />
+            <Remove />
           </IconButton>
           <Typography
             className={classes.cartNo}
@@ -109,9 +113,9 @@ const RecipeDetails = ({ match: { params } }) => {
             className={classes.toggleButton}
             color="primary"
             variant="contained"
-            onClick={(e) => handleRemoveFromCart(e, params._id)}
+            onClick={(e) => handleAddToCart(e, params._id)}
           >
-            <Remove />
+            <Add />
           </IconButton>
         </div>
       );
@@ -153,14 +157,19 @@ const RecipeDetails = ({ match: { params } }) => {
               <Typography className={classes.price}>
                 ${data.recipe.pricePerServing}
               </Typography>
-              <Rating
-                precision={0.1}
-                value={totalRating}
-                className={classes.rating}
-                // size="small"
-                readOnly
-              />
-              <Typography>{totalRating}</Typography>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <Rating
+                  precision={0.1}
+                  value={totalRating}
+                  className={classes.rating}
+                  // size="small"
+                  readOnly
+                />
+
+                <Typography style={{ marginLeft: "0.5rem" }}>
+                  {totalRating}
+                </Typography>
+              </div>
               <IconButton
                 className={classes.iconButton}
                 onClick={(e) => handleLike(e)}
@@ -193,6 +202,7 @@ const RecipeDetails = ({ match: { params } }) => {
               enableButton={false}
             />
             <CommentSection
+              orders={data.recipe.orders}
               comments={data.recipe.comments}
               totalRating={totalRating}
               onShowModal={handleShowModal}

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Grid, Typography } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import { useStyles } from "../styles/recipe";
 import CommentCard from "../components/shared/CommentCard";
+import { UserContext } from "../context/user";
 
 const CommentSection = ({
+  orders,
   comments,
   onSetComment,
   onDeleteComment,
@@ -12,6 +14,20 @@ const CommentSection = ({
   onShowModal,
 }) => {
   const classes = useStyles();
+  const { user } = useContext(UserContext);
+
+  const checkIfUserHasOrderedRecipe = () => {
+    let hasOrdered = false;
+    if (!user) return hasOrdered;
+
+    for (let userOrder in user.orders) {
+      if (orders.some((recipeOrder) => recipeOrder._id == userOrder._id)) {
+        hasOrdered = true;
+      }
+    }
+    return hasOrdered;
+  };
+
   return (
     <Grid item xs={12}>
       <div className={classes.buttonGroup} style={{ marginBottom: "0.5rem" }}>
@@ -22,13 +38,16 @@ const CommentSection = ({
         >
           Customer reviews
         </Typography>
-        <Button
-          variant="contained"
-          className={classes.commentButton}
-          onClick={onShowModal}
-        >
-          WRITE A REVIEW
-        </Button>
+
+        {checkIfUserHasOrderedRecipe() && (
+          <Button
+            variant="contained"
+            className={classes.commentButton}
+            onClick={onShowModal}
+          >
+            WRITE A REVIEW
+          </Button>
+        )}
       </div>
 
       <div className={classes.buttonGroup} style={{ marginBottom: "0.5rem" }}>

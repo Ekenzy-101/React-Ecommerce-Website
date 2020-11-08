@@ -3,7 +3,6 @@ import { orange } from "@material-ui/core/colors";
 import { ArrowBack } from "@material-ui/icons";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { TO_HOME } from "../../utils/constants";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -28,10 +27,7 @@ const HomeIcon = () => {
   return (
     <AppBar position="static" className={classes.appbar}>
       <Toolbar className={classes.toolbar}>
-        <IconButton
-          className={classes.button}
-          onClick={() => history.push(TO_HOME)}
-        >
+        <IconButton className={classes.button} onClick={() => history.goBack()}>
           <ArrowBack className={classes.icon} />
         </IconButton>
       </Toolbar>

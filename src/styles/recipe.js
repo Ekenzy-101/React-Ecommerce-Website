@@ -26,7 +26,7 @@ export const useStyles = makeStyles((theme) => ({
   cart: {
     fontSize: "2rem",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "1.2rem",
+      fontSize: "1.3rem",
     },
   },
   checkedIcon: {

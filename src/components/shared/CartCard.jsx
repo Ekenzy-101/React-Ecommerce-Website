@@ -32,9 +32,9 @@ const CartCard = ({ onDelete, recipe, refetch }) => {
             className={classes1.toggleButton}
             color="primary"
             variant="contained"
-            onClick={(e) => handleAddToCart(e, recipe._id)}
+            onClick={(e) => handleRemoveFromCart(e, recipe._id)}
           >
-            <Add />
+            {cartObj[recipe._id] > 1 ? <Remove /> : <Delete />}
           </IconButton>
           <Typography
             className={classes1.cartNo}
@@ -47,9 +47,9 @@ const CartCard = ({ onDelete, recipe, refetch }) => {
             className={classes1.toggleButton}
             color="primary"
             variant="contained"
-            onClick={(e) => handleRemoveFromCart(e, recipe._id)}
+            onClick={(e) => handleAddToCart(e, recipe._id)}
           >
-            {cartObj[recipe._id] > 1 ? <Remove /> : <Delete />}
+            <Add />
           </IconButton>
         </div>
       );

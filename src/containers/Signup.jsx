@@ -80,7 +80,13 @@ const Signup = () => {
             {renderInput("firstname", "Firstname", validateName, "John")}
             {renderInput("lastname", "Lastname", validateName, "Doe")}
             {renderInput("email", "Email", validateEmail, "johndoe@gmail.com")}
-            {renderInput("password", "Password", validatePassword, "password")}
+            {renderInput(
+              "password",
+              "Password",
+              validatePassword,
+              null,
+              "password"
+            )}
             {renderButton("SIGN UP")}
           </form>
           <div className={classes.heading}>

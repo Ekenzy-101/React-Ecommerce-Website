@@ -37,7 +37,8 @@ const SuccessModal = ({ cardId, open, addressId }) => {
           </Typography>
         </center>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={2}></Grid>
+          <Grid item xs={12} md={4}>
             <Typography
               className={classes.subHeader}
               variant="body1"
@@ -64,7 +65,7 @@ const SuccessModal = ({ cardId, open, addressId }) => {
               </Grid>
             )}
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <Typography
               className={classes.subHeader}
               variant="body1"
@@ -93,6 +94,7 @@ const SuccessModal = ({ cardId, open, addressId }) => {
               </Grid>
             )}
           </Grid>
+          <Grid item xs={12} md={2}></Grid>
         </Grid>
       </DialogContent>
       <DialogActions>

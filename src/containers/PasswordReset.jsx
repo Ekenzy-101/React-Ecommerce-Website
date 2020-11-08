@@ -121,12 +121,14 @@ const PasswordReset = ({ match: { params }, history, location }) => {
                 "password",
                 "Password",
                 validatePassword,
+                null,
                 "password"
               )}
               {renderInput(
                 "password2",
                 "Confirm Password",
                 validateConfirmPassword(formData.password),
+                null,
                 "password"
               )}
               {renderButton("Change Password")}
