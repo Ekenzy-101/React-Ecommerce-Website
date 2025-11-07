@@ -21,15 +21,8 @@ export const TOKEN_KEY = "token";
 export const USER_KEY = "user";
 
 // Image Constants
-export const MASTERCARD_LOGO =
-  "https://kenzy-ecommerce.s3.af-south-1.amazonaws.com/mastercard.png";
-export const VISA_LOGO =
-  "https://kenzy-ecommerce.s3.af-south-1.amazonaws.com/visa.png";
-export const BUSINESS_LOGO =
-  "https://kenzy-ecommerce.s3.af-south-1.amazonaws.com/logo-1.jpg";
-
-export const SAD_EMOJI =
-  "https://kenzy-ecommerce.s3.af-south-1.amazonaws.com/sad-emoji.jpg";
-
-export const CELEBRATE_EMOJI =
-  "https://kenzy-ecommerce.s3.af-south-1.amazonaws.com/celebrate-emoji.jpg";
+export const BUSINESS_LOGO = "/images/logo.jpg";
+export const MASTERCARD_LOGO = "/images/mastercard.png";
+export const VISA_LOGO = "/images/visa.png";
+export const CELEBRATE_EMOJI = "/images/celebrate-emoji.jpg";
+export const SAD_EMOJI = "/images/sad-emoji.jpg";

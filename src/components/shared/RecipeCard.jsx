@@ -30,11 +30,7 @@ const RecipeCard = ({ recipe, stretch }) => {
         />
         <CardMedia
           className={classes.media}
-          image={
-            recipe
-              ? recipe.image
-              : "https://kenzy-ecommerce.s3.af-south-1.amazonaws.com/fries.jpg"
-          }
+          image={recipe ? recipe.image : "/images/fries.jpg"}
           title={recipe ? recipe.name : "Fries"}
         />
       </CardActionArea>

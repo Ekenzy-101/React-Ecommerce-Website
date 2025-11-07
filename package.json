@@ -1,8 +1,9 @@
 {
-  "name": "ecommerce-app",
+  "name": "fastfood",
   "version": "1.0.0",
   "author": "Onyekaba Ekenedilichukwu",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@apollo/client": "3.2.3",
     "@material-ui/core": "4.11.0",
@@ -15,18 +16,16 @@
     "lodash": "4.17.20",
     "prop-types": "15.7.2",
     "qs": "6.9.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-router-dom": "5.1.2",
-    "react-scripts": "3.4.1",
     "react-toastify": "6.0.9",
     "validator": "13.1.17"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rsbuild dev",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,9 +43,10 @@
     ]
   },
   "devDependencies": {
+    "@rsbuild/core": "^1.6.3",
+    "@rsbuild/plugin-node-polyfill": "^1.4.2",
+    "@rsbuild/plugin-react": "^1.4.2",
+    "@rsbuild/plugin-svgr": "^1.2.2",
     "react-alice-carousel": "^1.19.3"
-  },
-  "engines": {
-    "node": "12.13.1"
   }
 }
