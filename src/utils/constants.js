@@ -17,11 +17,12 @@ export const TO_CHECKOUT = "/account/check-out";
 export const TO_SELECT_ADDRESS = "/account/select-address";
 
 // Key Constants
+export const BUSINESS_NAME = "Kenzy Food";
 export const TOKEN_KEY = "token";
 export const USER_KEY = "user";
 
 // Image Constants
-export const BUSINESS_LOGO = "/images/logo.jpg";
+export const BUSINESS_LOGO = "/images/logo.png";
 export const MASTERCARD_LOGO = "/images/mastercard.png";
 export const VISA_LOGO = "/images/visa.png";
 export const CELEBRATE_EMOJI = "/images/celebrate-emoji.jpg";

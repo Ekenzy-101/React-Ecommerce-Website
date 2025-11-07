@@ -6,9 +6,18 @@ import { ExitToApp, FavoriteBorder, LocationOn } from "@material-ui/icons";
 import { AccountCircle, ShoppingCart, CreditCard } from "@material-ui/icons";
 import { PersonAdd, Person, Receipt, Home } from "@material-ui/icons";
 
-import { TO_LOGOUT, TO_ORDERS, TO_SIGNUP } from "../utils/constants";
-import { TO_CREDIT_CARDS, TO_FAVOURITES, TO_HOME } from "../utils/constants";
-import { TO_ADDRESSES, TO_LOGIN, TO_CARTS } from "../utils/constants";
+import {
+  BUSINESS_NAME,
+  TO_ADDRESSES,
+  TO_CARTS,
+  TO_CREDIT_CARDS,
+  TO_FAVOURITES,
+  TO_LOGIN,
+  TO_LOGOUT,
+  TO_HOME,
+  TO_ORDERS,
+  TO_SIGNUP,
+} from "../utils/constants";
 import { useStyles } from "../styles/navbar";
 import { UserContext } from "../context/user";
 import { data } from "../utils/data";
@@ -86,7 +95,7 @@ const SideBar = ({ open, setOpen, onClick }) => {
         )}
         <Divider />
         <ListItem className={classes.subList}>
-          <ListItemText primary={"MY FAST FOOD ACCOUNT"} />
+          <ListItemText primary={`MY ${BUSINESS_NAME.toUpperCase()} ACCOUNT`} />
         </ListItem>
         <ListItem
           className={classes.listItem}

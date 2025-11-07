@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { Avatar, Button, Grid, Paper, Typography } from "@material-ui/core";
 import React from "react";
 import { VERIFY_EMAIL } from "../mutations/user";
-import { BUSINESS_LOGO, TO_SIGNUP } from "../utils/constants";
+import { BUSINESS_LOGO, BUSINESS_NAME, TO_SIGNUP } from "../utils/constants";
 import { useStyles } from "../styles/form";
 import { Redirect } from "react-router-dom";
 import useForm from "../hooks/useForm";
@@ -10,9 +10,8 @@ import useForm from "../hooks/useForm";
 const UnverifiedEmail = ({ location }) => {
   const classes = useStyles();
   const [verifyEmail] = useMutation(VERIFY_EMAIL);
-  const { setError, setSuccess, setOpen, renderError, renderSuccess } = useForm(
-    ""
-  );
+  const { setError, setSuccess, setOpen, renderError, renderSuccess } =
+    useForm("");
 
   const handleClick = async (e) => {
     try {
@@ -45,8 +44,8 @@ const UnverifiedEmail = ({ location }) => {
             <strong>Please verify your email address</strong>
           </Typography>
           <Typography variant="subtitle1" className={classes.centeredText}>
-            Before you can order on Fast Food, we need you to verify your email
-            address.
+            Before you can order on {BUSINESS_NAME}, we need you to verify your
+            email address.
           </Typography>
           <Typography variant="subtitle1" className={classes.centeredText}>
             An email containing verification instructions was sent to

@@ -4,7 +4,12 @@ import React, { useEffect } from "react";
 import useForm from "../hooks/useForm";
 import { ACTIVATE_EMAIL, VERIFY_EMAIL } from "../mutations/user";
 import { useStyles } from "../styles/form";
-import { CELEBRATE_EMOJI, SAD_EMOJI, TO_LOGIN } from "../utils/constants";
+import {
+  BUSINESS_NAME,
+  CELEBRATE_EMOJI,
+  SAD_EMOJI,
+  TO_LOGIN,
+} from "../utils/constants";
 import { validateEmail } from "../utils/validation";
 
 const ActivateEmail = ({ match, history }) => {
@@ -72,7 +77,7 @@ const ActivateEmail = ({ match, history }) => {
           ) : (
             <Typography variant="subtitle1" className={classes.centeredText}>
               Congratulations you have activated your account now. You can login
-              in now and order on Fast Food.
+              in now and order on {BUSINESS_NAME}.
             </Typography>
           )}
           {!error ? (

@@ -12,7 +12,7 @@ import {
   validateEmail,
   validatePassword,
 } from "../utils/validation";
-import { BUSINESS_LOGO } from "../utils/constants";
+import { BUSINESS_LOGO, BUSINESS_NAME } from "../utils/constants";
 
 const PasswordReset = ({ match: { params }, history, location }) => {
   const classes = useStyles();
@@ -111,8 +111,8 @@ const PasswordReset = ({ match: { params }, history, location }) => {
             </Typography>
           ) : (
             <Typography variant="subtitle1" className={classes.centeredText}>
-              Enter the email address associated with your Fast Food account and
-              we send you a password reset link.
+              Enter the email address associated with your {BUSINESS_NAME}{" "}
+              account and we send you a password reset link.
             </Typography>
           )}
           {params.token && !error ? (
